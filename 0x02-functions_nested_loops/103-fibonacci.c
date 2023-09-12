@@ -1,21 +1,23 @@
 #include <stdio.h>
 /**
-* main - the main printing funtion
-* less than 4000000.
-* Return: 0.
+* main - Computes and prints the sum of even Fibonacci numbers
+* which do not exceed 4,000,000.
+* Return: Always 0.
 */
 int main(void)
 {
-int i = 0;
-long j = 1, k = 2, sum = k;
-while (k + j < 4000000)
+unsigned long a = 1, b = 2, next = 0;
+unsigned long sum = 2;
+while (1)
 {
-k += j;
-if (k % 2 == 0)
-sum += k;
-j = k - j;
-++i;
+next = a + b;
+if (next > 4000000)
+break;
+if (next % 2 == 0)
+sum += next;
+a = b;
+b = next;
 }
-printf("%ld", sum);
+printf("%lu\n", sum);
 return (0);
 }
